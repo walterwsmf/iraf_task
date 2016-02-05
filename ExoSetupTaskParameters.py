@@ -2,7 +2,9 @@
 """
 Created on Fri Feb  5 16:33:14 2016
 
-@author: walter
+@author: Walter Martins-Filho
+e-mail: walter at on.br
+        waltersmartinsf at gmail.com
 
 ExoSetupTaskParameters for PyExoDRPL
 """

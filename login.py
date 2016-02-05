@@ -2,7 +2,8 @@
 """
 Created on Fri Feb  5 16:02:11 2016
 
-@author: walter@on.br
+e-mail: walter at on.br
+        waltersmartinsf at gmail.com
 
 Load packages for exoplanet data reduction
 

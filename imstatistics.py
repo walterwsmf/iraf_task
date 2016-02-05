@@ -2,7 +2,9 @@
 """
 Created on Fri Feb  5 12:27:29 2016
 
-@author: walter
+@author: Walter Martins-Filho
+e-mail: walter at on.br
+        waltersmartinsf at gmail.com
 
 Code based on Pyraf Guide page 1.
 http://stsdas.stsci.edu/stsci_python_sphinxdocs_2.13/docs/pyraf_guide.pdf

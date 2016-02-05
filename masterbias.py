@@ -2,8 +2,9 @@
 """
 Created on Fri Feb  5 16:22:13 2016
 
-@author: walter
-
+@author: Walter Martins-Filho
+e-mail: walter at on.br
+        waltersmartinsf at gmail.com
 """
 
 print 'Data Reduction: Create a masterbias image \n'
