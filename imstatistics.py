@@ -3,6 +3,9 @@
 Created on Fri Feb  5 12:27:29 2016
 
 @author: walter
+
+Code based on Pyraf Guide page 1.
+http://stsdas.stsci.edu/stsci_python_sphinxdocs_2.13/docs/pyraf_guide.pdf
 """
 
 #Example code for work with fits image using pyraf modules
