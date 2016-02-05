@@ -35,7 +35,10 @@ print '\nCreating superbias \n'
 if not os.path.exists(save_path): 
     os.makedirs(save_path)
 
+#create a list of bias images
 os.system('ls bias*.fits > '+bias_list)
+
+#combine the bias image and create the superbias
 iraf.imcombine('@'+bias_list,save_path+'superbias.fits')
 
 #Return to original directory
