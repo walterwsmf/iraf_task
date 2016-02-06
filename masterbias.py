@@ -31,7 +31,6 @@ if input_file:
         file = yaml.load(open(input_file[0])) #creating our dictionary of input variables
         data_path = file['data_path']
         save_path = file['save_path']
-        bias_list = file['bias_list']
         print '....  done! \n'
     if len(input_file) > 1:
         print 'reading input file ... \n'
