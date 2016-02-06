@@ -11,7 +11,7 @@ ___
 - IRAF 2.16
 - PyYAML 3.11
 
-You can found all that in Ureka 1.5.2 package: http://ssb.stsci.edu/ureka/
+You can find Iraf and Python packages in Ureka 1.5.2 package: http://ssb.stsci.edu/ureka/
 
 ___
 # License and Legal Code
