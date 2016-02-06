@@ -15,7 +15,8 @@ from login import * #loading login.cl parameters for iraf
 from ExoSetupTaskParameters import * #loading setup from PyExoDRPL
 import glob #package for list files
 import os #package for control bash commands
-import yaml
+import yaml #input data without any trouble
+import string #transform a list in a string of caracters
 print '.... done. \n'
 
 #******************************************************************************
@@ -51,17 +52,14 @@ os.chdir(data_path)
 
 #list all flat images
 flat = glob.glob('flat*.fits')
-print 'Loading flat images \nTotal of bias files = ',len(flat),'\nFiles = \n'
+print 'Loading flat images \nTotal of flat files = ',len(flat),'\nFiles = \n'
 print flat
 
 #if save_path exist, continue; if not, create.
 if not os.path.exists(save_path): 
     os.makedirs(save_path)
 
-#create a list of bias images
-os.system('ls flat*.fits > '+flat_list)
-
-#cp flat files to save_path
+#create a list of bias images and copy images to save_path
 os.system('cp flat*.fits '+save_path)
 os.system('cp '+flat_list+' '+save_path)
 
@@ -69,8 +67,38 @@ os.system('cp '+flat_list+' '+save_path)
 bflat = []
 for i in flat:
     bflat.append('B'+i)
-print 'Names os flat images with bias subtracted: \n \n',bflat 
-#creating bflat list
-bflat_list = open('bflat_list', 'w')
+print '\n Names os flat images with bias subtracted: \n \n',bflat 
 
+#change for save_path directory
+os.chdir(save_path)
+
+#verify if previous superbias exist
+if os.path.isfile('superflat.fits') == True:
+    os.system('rm superflat.fits')
+#verify if exits previous bflat*.fits files and remove then.
+for i in bflat:
+    if os.path.isfile(i) == True:
+        os.system('rm '+i)
+        
 print '\nCreating superflat ... \n'
+
+#create the list of flat images  and bflat images
+flat = string.join(flat,',')
+bflat = string.join(bflat,',')
+
+print '\n Subtracting bias from flat images and creating bflat images... \n'
+#iraf.imarith()
+iraf.imarith(flat,'-','superbias.fits',bflat)
+#print statistics from bflat*.fits images
+iraf.imstat(bflat)
+print '\n ...done \n'
+
+print '\n Combining bflat images... \n'
+iraf.imcombine(bflat,'superflat.fits')
+iraf.imstat('superflat.fits')
+
+#clean previos bias files
+os.system('rm flat*.fits')
+
+#Return to original directory
+os.chdir(original_path)
