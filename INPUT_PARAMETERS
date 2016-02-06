@@ -7,9 +7,10 @@ e-mail: walter at on.br
         waltersmartinsf at gmail.com
 """
 
-This file describe how to create the input parameters file. The input parameter file
-need to be like input_file*.yaml. YAML files, describe by the official site, is a
-human friendly data serialization standard for all programing languages. And, it is!
+This file describe how to create the input parameters file. The input parameter
+file need to be like input_file*.yaml. YAML files, describe by the official
+site, is a human friendly data serialization standard for all programing
+languages. And, it is!
 
 Yaml files that have a variable value to your program only need the name of the
 variable and the value. We can introduce comments with # symbol before each line.
@@ -21,7 +22,7 @@ You can learn more in:
 The Offcial site of YAML language: http://yaml.org/
 The site of PyYAML package: http://pyyaml.org/wiki/PyYAML
 
-**** Creating your input_path*.yaml file *****************************************
+**** Creating your input_path*.yaml file ***************************************
 
 To create the input_path*.yaml file we have to put variable and value like this:
 
@@ -42,19 +43,10 @@ data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
 # Path where we want to save our results
 save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
 
-# bias_list ********************************************************************
-# Name for our list of bias images that will be create
-bias_list: 'bias_list'
-
-# flat_list ********************************************************************
-# Name for our list of flat images that will be create
-flat_list: 'flat_list'
-
 #*******************************************************************************
 #************************ END yaml file input **********************************
 #*******************************************************************************
 
-With tht, we create the following variables: data_path, save_path, bias_list,
-and flat_list. All are strings. data_path describe where are your data.
-save_path describe where you want to save the results. bias_list and flat_list are
-the names of your bias and flat list, respectivaly.
+With tht, we create the following variables: data_path and save_path. All are
+strings. data_path describe where are your data. save_path describe where you
+want to save the results.

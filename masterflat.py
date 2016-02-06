@@ -80,25 +80,27 @@ for i in bflat:
     if os.path.isfile(i) == True:
         os.system('rm '+i)
         
-print '\nCreating superflat ... \n'
+print '\nCreating superflat .... \n'
 
 #create the list of flat images  and bflat images
 flat = string.join(flat,',')
 bflat = string.join(bflat,',')
 
-print '\n Subtracting bias from flat images and creating bflat images... \n'
+print '\n Subtracting bias from flat images and creating bflat images.... \n'
 #iraf.imarith()
 iraf.imarith(flat,'-','superbias.fits',bflat)
 #print statistics from bflat*.fits images
 iraf.imstat(bflat)
-print '\n ...done \n'
+print '\n .... done \n'
 
 print '\n Combining bflat images... \n'
 iraf.imcombine(bflat,'superflat.fits')
 iraf.imstat('superflat.fits')
+print '\n .... done. \n'
 
 #clean previos bias files
-os.system('rm flat*.fits')
-
+print '\n Clean flat*.fits and bflat*.fits images .... \n'
+os.system('rm flat*.fits Bflat*.fits')
+print '\n .... done. \n'
 #Return to original directory
 os.chdir(original_path)

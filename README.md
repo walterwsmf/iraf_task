@@ -5,7 +5,7 @@ Repository for my personal scripts to work with iraf, and useful scripts found o
 ___
 # Requirements
 
-- Python >=2.7
+- Python 2.7
 - PyRAF 2.1.6
 - IRAF 2.16
 - PyYAML 3.11

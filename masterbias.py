@@ -81,7 +81,9 @@ iraf.imcombine(bias,'superbias.fits')
 iraf.imstat('superbias.fits')
 
 #clean previos bias files
+print '\n Clean bias*.fits images ... \n'
 os.system('rm bias*.fits')
+print '\n .... done \n'
 
 #Return to original directory
 os.chdir(original_path)
