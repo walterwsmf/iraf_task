@@ -102,3 +102,6 @@ os.system('rm flat*.fits Bflat*.fits')
 print '\n .... done. \n'
 #Return to original directory
 os.chdir(original_path)
+#last mensage
+print '\n MASTERFLAT.FITS created! \n'
+print '\n END of Data Reduction for create a masterflat.fits file. \n'

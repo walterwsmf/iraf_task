@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb  5 16:22:13 2016
+Created on Sat Feb  6 21:08:38 2016
 
 @author: Walter Martins-Filho
 e-mail: walter at on.br
         waltersmartinsf at gmail.com
 """
 
-print 'Data Reduction: Create a masterbias image \n'
+print 'Data Reduction: Reduce Science images! \n'
 print 'Loading Iraf packages .... \n'
 
-from pyraf import iraf #loading iraf package
+from pyraf import iraf
 from login import * #loading login.cl parameters for iraf
 from ExoSetupTaskParameters import * #loading setup from PyExoDRPL
 import glob #package for list files
@@ -31,6 +31,7 @@ if input_file:
         file = yaml.load(open(input_file[0])) #creating our dictionary of input variables
         data_path = file['data_path']
         save_path = file['save_path']
+        planet = file['exoplanet']
         print '....  done! \n'
     if len(input_file) > 1:
         print 'reading input file ... \n'
@@ -42,49 +43,25 @@ else:
 #******************************************************************************
 #******************* END INPUT PATH FILE **************************************
 #******************************************************************************
-    
-#Set original directory
+
+#set original directory
 original_path = os.getcwd()
-    
+
 #Change your directory to data diretory
 os.chdir(data_path)
 
-#list all bias images
-bias = glob.glob('bias*.fits')
-print 'Loading bias images \nTotal of bias files = ',len(bias),'\nFiles = \n'
-print bias
-print '\nCreating superbias \n'
+#list all flat images
+exoplanet = glob.glob(planet+'*.fits')
+print '\nLoading exoplanet images \nTotal of flat files = ',len(exoplanet),'\nFiles = \n'
+print exoplanet
 
 #if save_path exist, continue; if not, create.
-if not os.path.exists(save_path):
+if not os.path.exists(save_path): 
     os.makedirs(save_path)
 
-# copy the files to save_path
-os.system('cp bias*.fits '+save_path)
-
-#change to sabe_path
+#create a list of bias images and copy images to save_path
+print '\nCopy science images to save_path directory to main reduction: ....'
+os.system('cp '+planet+'*.fits '+save_path)
+print '\n .... done. \n'
+#change to save_path
 os.chdir(save_path)
-
-#verify if previous superbias exist
-if os.path.isfile('superbias.fits') == True:
-    os.system('rm superbias.fits')
-    
-#creating bias list
-bias = string.join(bias,',')
-
-#combine the bias image and create the superbias
-iraf.imcombine(bias,'superbias.fits')
-
-#print statistics from superbias:
-iraf.imstat('superbias.fits')
-
-#clean previos bias files
-print '\n Clean bias*.fits images ... \n'
-os.system('rm bias*.fits')
-print '\n .... done \n'
-
-#Return to original directory
-os.chdir(original_path)
-
-print '\n MASTERBIAS.FITS created! \n'
-print '\n END of Data Reduction for create a masterbias.fits file. \n'

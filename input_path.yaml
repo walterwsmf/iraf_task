@@ -10,6 +10,10 @@ data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
 # Path where we want to save our results
 save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
 
+# exoplanet ********************************************************************
+#prefix for the exoplanet science images
+exoplanet: 'xo2b'
+
 #*******************************************************************************
 #************************ END yaml file input **********************************
 #*******************************************************************************
