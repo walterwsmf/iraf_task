@@ -6,6 +6,7 @@ ___
 - Python >=2.7
 - PyRAF 2.1.6
 - IRAF 2.16
+- PyYAML 3.11
 
 You can found all that in Ureka 1.5.2 package: http://ssb.stsci.edu/ureka/ 
 

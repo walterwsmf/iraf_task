@@ -1,0 +1,23 @@
+#*******************************************************************************
+#********************** Begin yaml file input **********************************
+#*******************************************************************************
+
+# data_path ********************************************************************
+# Path where are the data we want to reduce
+data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
+
+# save_path ********************************************************************
+# Path where we want to save our results
+save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
+
+# bias_list ********************************************************************
+# Name for our list of bias images that will be create
+bias_list: 'bias_list'
+
+# flat_list ********************************************************************
+# Name for our list of flat images that will be create
+flat_list: 'flat_list'
+
+#*******************************************************************************
+#************************ END yaml file input **********************************
+#*******************************************************************************

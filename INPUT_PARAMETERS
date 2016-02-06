@@ -1,0 +1,60 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb  5 23:10:05 2016
+
+@author: Walter Martins-Filho
+e-mail: walter at on.br
+        waltersmartinsf at gmail.com
+"""
+
+This file describe how to create the input parameters file. The input parameter file
+need to be like input_file*.yaml. YAML files, describe by the official site, is a
+human friendly data serialization standard for all programing languages. And, it is!
+
+Yaml files that have a variable value to your program only need the name of the
+variable and the value. We can introduce comments with # symbol before each line.
+
+In this codes, We are working with PyTAML package. This is the python package to
+work with yaml files.
+
+You can learn more in:
+The Offcial site of YAML language: http://yaml.org/
+The site of PyYAML package: http://pyyaml.org/wiki/PyYAML
+
+**** Creating your input_path*.yaml file *****************************************
+
+To create the input_path*.yaml file we have to put variable and value like this:
+
+#comments
+variable_name: value
+
+So, in your input_path*yaml file can be more like that:
+
+#*******************************************************************************
+#********************** Begin yaml file input **********************************
+#*******************************************************************************
+
+# data_path ********************************************************************
+# Path where are the data we want to reduce
+data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
+
+# save_path ********************************************************************
+# Path where we want to save our results
+save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
+
+# bias_list ********************************************************************
+# Name for our list of bias images that will be create
+bias_list: 'bias_list'
+
+# flat_list ********************************************************************
+# Name for our list of flat images that will be create
+flat_list: 'flat_list'
+
+#*******************************************************************************
+#************************ END yaml file input **********************************
+#*******************************************************************************
+
+With tht, we create the following variables: data_path, save_path, bias_list,
+and flat_list. All are strings. data_path describe where are your data.
+save_path describe where you want to save the results. bias_list and flat_list are
+the names of your bias and flat list, respectivaly.
