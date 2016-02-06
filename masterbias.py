@@ -61,7 +61,6 @@ if not os.path.exists(save_path):
 
 # copy the files to save_path
 os.system('cp bias*.fits '+save_path)
-os.system('cp '+bias_list+' '+save_path)
 
 #change to sabe_path
 os.chdir(save_path)

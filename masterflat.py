@@ -60,7 +60,6 @@ if not os.path.exists(save_path):
 
 #create a list of bias images and copy images to save_path
 os.system('cp flat*.fits '+save_path)
-os.system('cp '+flat_list+' '+save_path)
 
 #creating the names of flat with bias subctracted
 bflat = []
