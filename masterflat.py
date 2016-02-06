@@ -53,7 +53,6 @@ os.chdir(data_path)
 flat = glob.glob('flat*.fits')
 print 'Loading flat images \nTotal of bias files = ',len(flat),'\nFiles = \n'
 print flat
-print '\nCreating superflat \n'
 
 #if save_path exist, continue; if not, create.
 if not os.path.exists(save_path): 
@@ -62,5 +61,16 @@ if not os.path.exists(save_path):
 #create a list of bias images
 os.system('ls flat*.fits > '+flat_list)
 
-#Remove superbias from all flat images
-#iraf.imarith('@'+flat_list)
+#cp flat files to save_path
+os.system('cp flat*.fits '+save_path)
+os.system('cp '+flat_list+' '+save_path)
+
+#creating the names of flat with bias subctracted
+bflat = []
+for i in flat:
+    bflat.append('B'+i)
+print 'Names os flat images with bias subtracted: \n \n',bflat 
+#creating bflat list
+bflat_list = open('bflat_list', 'w')
+
+print '\nCreating superflat ... \n'
