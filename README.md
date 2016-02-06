@@ -5,6 +5,7 @@ Repository for my personal scripts to work with iraf, and useful scripts found o
 ___
 # Requirements
 
+- Bash environment: Linux or Mac OS X
 - Python 2.7
 - PyRAF 2.1.6
 - IRAF 2.16
