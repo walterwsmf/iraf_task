@@ -15,9 +15,50 @@ from login import * #loading login.cl parameters for iraf
 from ExoSetupTaskParameters import * #loading setup from PyExoDRPL
 import glob #package for list files
 import os #package for control bash commands
+import sys #package for control the system parameters opf python
 import yaml #input data without any trouble
 import string #transform a list in a string of caracters
 print '.... done. \n'
+
+#******************************************************************************
+#***************** Usefull functions ******************************************
+#******************************************************************************
+#BAR Progress function to visualize the progress status:
+def update_progress(progress):
+    """
+    Progress Bar to visualize the status of a procedure
+    ___
+    INPUT:
+    progress: percent of the data
+
+    ___
+    Example:
+    print ""
+    print "progress : 0->1"
+    for i in range(100):
+        time.sleep(0.1)
+        update_progress(i/100.0)
+    """
+    barLength = 10 # Modify this to change the length of the progress bar
+    status = ""
+    if isinstance(progress, int):
+        progress = float(progress)
+    if not isinstance(progress, float):
+        progress = 0
+        status = "error: progress var must be float\r\n"
+    if progress < 0:
+        progress = 0
+        status = "Halt...\r\n"
+    if progress >= 1:
+        progress = 1
+        status = "Done...\r\n"
+    block = int(round(barLength*progress))
+    text = "\rPercent: [{0}] {1}% {2}".format( "#"*block + "-"*(barLength-block), progress*100, status)
+    sys.stdout.write(text)
+    sys.stdout.flush()
+#******************************************************************************
+#************ END of Usefull functions ****************************************
+#******************************************************************************
 
 #******************************************************************************
 #**************** BEGIN INPUT PATH FILE ***************************************
@@ -52,7 +93,7 @@ os.chdir(data_path)
 
 #list all flat images
 exoplanet = glob.glob(planet+'*.fits')
-print '\nLoading exoplanet images \nTotal of flat files = ',len(exoplanet),'\nFiles = \n'
+print '\nLoading exoplanet images \nTotal of '+planet+'*.fits  files = ',len(exoplanet),'\nFiles = \n'
 print exoplanet
 
 #if save_path exist, continue; if not, create.
@@ -63,5 +104,35 @@ if not os.path.exists(save_path):
 print '\nCopy science images to save_path directory to main reduction: ....'
 os.system('cp '+planet+'*.fits '+save_path)
 print '\n .... done. \n'
+
+#change to save_path
+os.chdir(save_path)
+    
+#create the names for exoplanet science mages with bias subtracted
+bexoplanet = [] 
+for i in exoplanet:
+    bexoplanet.append('B'+i)
+    #verify if previous superbias exist
+    if os.path.isfile('B'+i) == True:
+        os.system('rm B'+i)
+        
+print '\n Will be create this images: \n'
+print bexoplanet
+    
+#exoplanet = string.join(exoplanet,',') #create the list string of exoplanet science images
+#bexoplanet = string.join(bexoplanet,',')#create the list string of bexoplanet science images
+
+print '\nSubtracting superbias.fits from all '+planet+'*.fits images ....\n'
+for i in range(len(exoplanet)):
+    iraf.imarith(exoplanet[i],'-','superbias.fits',bexoplanet[i])
+    update_progress((i+1.)/len(exoplanet))
+
+print '\n.... cleaning '+planet+'*.fits images\n'
+os.system('rm '+planet+'*.fits')
+  
+print '\n Statistics of B'+planet+'*.fits images: \n'
+for i in range(len(bexoplanet)):
+    iraf.imstat(bexoplanet[i])
+
 #change to save_path
 os.chdir(save_path)

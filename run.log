@@ -1,0 +1,331 @@
+Data Reduction: Reduce Science images! 
+
+Loading Iraf packages .... 
+
+
+
+      +------------------------------------------------------------+
+      |       Space Telescope Science Data Analysis System         |    
+      |                   STSDAS Version 3.17                      |
+      |                                                            |
+      |   Space Telescope Science Institute, Baltimore, Maryland   |
+      |   Copyright (C) 2014 Association of Universities for       |
+      |            Research in Astronomy, Inc.(AURA)               |
+      |       See stsdas$copyright.stsdas for terms of use.        |
+      |         For help, send e-mail to help@stsci.edu            |
+      |                                                            |
+      +------------------------------------------------------------+
+stsdas/:
+ analysis/      examples        hst_calib/      sobsolete/
+ contrib/       fitsio/         playpen/        toolbox/
+ describe       graphics/       problems
+imred/:
+ argus/         ctioslit/       hydra/          kpnocoude/      vtel/
+ bias/          dtoi/           iids/           kpnoslit/
+ ccdred/        echelle/        irred/          quadred/
+ crutil/        generic/        irs/            specred/
+ccdred/:
+ badpiximage    ccdlist         combine         mkillumcor      setinstrument
+ ccdgroups      ccdmask         darkcombine     mkillumflat     zerocombine
+ ccdhedit       ccdproc         flatcombine     mkskycor
+ ccdinstrument  ccdtest         mkfringecor     mkskyflat
+crutil/:
+ cosmicrays     crcombine       crfix           crmedian
+ craverage      credit          crgrow          crnebula
+.... done. 
+
+reading input file ... 
+
+....  done! 
+
+
+Loading exoplanet images 
+Total of xo2b*.fits  files =  133 
+Files = 
+
+['xo2b.0226.fits', 'xo2b.0228.fits', 'xo2b.0230.fits', 'xo2b.0232.fits', 'xo2b.0234.fits', 'xo2b.0236.fits', 'xo2b.0238.fits', 'xo2b.0240.fits', 'xo2b.0242.fits', 'xo2b.0244.fits', 'xo2b.0246.fits', 'xo2b.0248.fits', 'xo2b.0250.fits', 'xo2b.0252.fits', 'xo2b.0254.fits', 'xo2b.0256.fits', 'xo2b.0258.fits', 'xo2b.0260.fits', 'xo2b.0262.fits', 'xo2b.0264.fits', 'xo2b.0266.fits', 'xo2b.0002.fits', 'xo2b.0004.fits', 'xo2b.0006.fits', 'xo2b.0008.fits', 'xo2b.0010.fits', 'xo2b.0012.fits', 'xo2b.0014.fits', 'xo2b.0016.fits', 'xo2b.0018.fits', 'xo2b.0020.fits', 'xo2b.0022.fits', 'xo2b.0024.fits', 'xo2b.0026.fits', 'xo2b.0028.fits', 'xo2b.0030.fits', 'xo2b.0032.fits', 'xo2b.0034.fits', 'xo2b.0036.fits', 'xo2b.0038.fits', 'xo2b.0040.fits', 'xo2b.0042.fits', 'xo2b.0044.fits', 'xo2b.0046.fits', 'xo2b.0048.fits', 'xo2b.0050.fits', 'xo2b.0052.fits', 'xo2b.0054.fits', 'xo2b.0056.fits', 'xo2b.0058.fits', 'xo2b.0060.fits', 'xo2b.0062.fits', 'xo2b.0064.fits', 'xo2b.0066.fits', 'xo2b.0068.fits', 'xo2b.0070.fits', 'xo2b.0072.fits', 'xo2b.0074.fits', 'xo2b.0076.fits', 'xo2b.0078.fits', 'xo2b.0080.fits', 'xo2b.0082.fits', 'xo2b.0084.fits', 'xo2b.0086.fits', 'xo2b.0088.fits', 'xo2b.0090.fits', 'xo2b.0092.fits', 'xo2b.0094.fits', 'xo2b.0096.fits', 'xo2b.0098.fits', 'xo2b.0100.fits', 'xo2b.0102.fits', 'xo2b.0104.fits', 'xo2b.0106.fits', 'xo2b.0108.fits', 'xo2b.0110.fits', 'xo2b.0112.fits', 'xo2b.0114.fits', 'xo2b.0116.fits', 'xo2b.0118.fits', 'xo2b.0120.fits', 'xo2b.0122.fits', 'xo2b.0124.fits', 'xo2b.0126.fits', 'xo2b.0128.fits', 'xo2b.0130.fits', 'xo2b.0132.fits', 'xo2b.0134.fits', 'xo2b.0136.fits', 'xo2b.0138.fits', 'xo2b.0140.fits', 'xo2b.0142.fits', 'xo2b.0144.fits', 'xo2b.0146.fits', 'xo2b.0148.fits', 'xo2b.0150.fits', 'xo2b.0152.fits', 'xo2b.0154.fits', 'xo2b.0156.fits', 'xo2b.0158.fits', 'xo2b.0160.fits', 'xo2b.0162.fits', 'xo2b.0164.fits', 'xo2b.0166.fits', 'xo2b.0168.fits', 'xo2b.0170.fits', 'xo2b.0172.fits', 'xo2b.0174.fits', 'xo2b.0176.fits', 'xo2b.0178.fits', 'xo2b.0180.fits', 'xo2b.0182.fits', 'xo2b.0184.fits', 'xo2b.0186.fits', 'xo2b.0188.fits', 'xo2b.0190.fits', 'xo2b.0192.fits', 'xo2b.0194.fits', 'xo2b.0196.fits', 'xo2b.0198.fits', 'xo2b.0200.fits', 'xo2b.0202.fits', 'xo2b.0204.fits', 'xo2b.0206.fits', 'xo2b.0208.fits', 'xo2b.0210.fits', 'xo2b.0212.fits', 'xo2b.0214.fits', 'xo2b.0216.fits', 'xo2b.0218.fits', 'xo2b.0220.fits', 'xo2b.0222.fits', 'xo2b.0224.fits']
+
+Copy science images to save_path directory to main reduction: ....
+
+ .... done. 
+
+
+ Will be create this images: 
+
+['Bxo2b.0226.fits', 'Bxo2b.0228.fits', 'Bxo2b.0230.fits', 'Bxo2b.0232.fits', 'Bxo2b.0234.fits', 'Bxo2b.0236.fits', 'Bxo2b.0238.fits', 'Bxo2b.0240.fits', 'Bxo2b.0242.fits', 'Bxo2b.0244.fits', 'Bxo2b.0246.fits', 'Bxo2b.0248.fits', 'Bxo2b.0250.fits', 'Bxo2b.0252.fits', 'Bxo2b.0254.fits', 'Bxo2b.0256.fits', 'Bxo2b.0258.fits', 'Bxo2b.0260.fits', 'Bxo2b.0262.fits', 'Bxo2b.0264.fits', 'Bxo2b.0266.fits', 'Bxo2b.0002.fits', 'Bxo2b.0004.fits', 'Bxo2b.0006.fits', 'Bxo2b.0008.fits', 'Bxo2b.0010.fits', 'Bxo2b.0012.fits', 'Bxo2b.0014.fits', 'Bxo2b.0016.fits', 'Bxo2b.0018.fits', 'Bxo2b.0020.fits', 'Bxo2b.0022.fits', 'Bxo2b.0024.fits', 'Bxo2b.0026.fits', 'Bxo2b.0028.fits', 'Bxo2b.0030.fits', 'Bxo2b.0032.fits', 'Bxo2b.0034.fits', 'Bxo2b.0036.fits', 'Bxo2b.0038.fits', 'Bxo2b.0040.fits', 'Bxo2b.0042.fits', 'Bxo2b.0044.fits', 'Bxo2b.0046.fits', 'Bxo2b.0048.fits', 'Bxo2b.0050.fits', 'Bxo2b.0052.fits', 'Bxo2b.0054.fits', 'Bxo2b.0056.fits', 'Bxo2b.0058.fits', 'Bxo2b.0060.fits', 'Bxo2b.0062.fits', 'Bxo2b.0064.fits', 'Bxo2b.0066.fits', 'Bxo2b.0068.fits', 'Bxo2b.0070.fits', 'Bxo2b.0072.fits', 'Bxo2b.0074.fits', 'Bxo2b.0076.fits', 'Bxo2b.0078.fits', 'Bxo2b.0080.fits', 'Bxo2b.0082.fits', 'Bxo2b.0084.fits', 'Bxo2b.0086.fits', 'Bxo2b.0088.fits', 'Bxo2b.0090.fits', 'Bxo2b.0092.fits', 'Bxo2b.0094.fits', 'Bxo2b.0096.fits', 'Bxo2b.0098.fits', 'Bxo2b.0100.fits', 'Bxo2b.0102.fits', 'Bxo2b.0104.fits', 'Bxo2b.0106.fits', 'Bxo2b.0108.fits', 'Bxo2b.0110.fits', 'Bxo2b.0112.fits', 'Bxo2b.0114.fits', 'Bxo2b.0116.fits', 'Bxo2b.0118.fits', 'Bxo2b.0120.fits', 'Bxo2b.0122.fits', 'Bxo2b.0124.fits', 'Bxo2b.0126.fits', 'Bxo2b.0128.fits', 'Bxo2b.0130.fits', 'Bxo2b.0132.fits', 'Bxo2b.0134.fits', 'Bxo2b.0136.fits', 'Bxo2b.0138.fits', 'Bxo2b.0140.fits', 'Bxo2b.0142.fits', 'Bxo2b.0144.fits', 'Bxo2b.0146.fits', 'Bxo2b.0148.fits', 'Bxo2b.0150.fits', 'Bxo2b.0152.fits', 'Bxo2b.0154.fits', 'Bxo2b.0156.fits', 'Bxo2b.0158.fits', 'Bxo2b.0160.fits', 'Bxo2b.0162.fits', 'Bxo2b.0164.fits', 'Bxo2b.0166.fits', 'Bxo2b.0168.fits', 'Bxo2b.0170.fits', 'Bxo2b.0172.fits', 'Bxo2b.0174.fits', 'Bxo2b.0176.fits', 'Bxo2b.0178.fits', 'Bxo2b.0180.fits', 'Bxo2b.0182.fits', 'Bxo2b.0184.fits', 'Bxo2b.0186.fits', 'Bxo2b.0188.fits', 'Bxo2b.0190.fits', 'Bxo2b.0192.fits', 'Bxo2b.0194.fits', 'Bxo2b.0196.fits', 'Bxo2b.0198.fits', 'Bxo2b.0200.fits', 'Bxo2b.0202.fits', 'Bxo2b.0204.fits', 'Bxo2b.0206.fits', 'Bxo2b.0208.fits', 'Bxo2b.0210.fits', 'Bxo2b.0212.fits', 'Bxo2b.0214.fits', 'Bxo2b.0216.fits', 'Bxo2b.0218.fits', 'Bxo2b.0220.fits', 'Bxo2b.0222.fits', 'Bxo2b.0224.fits']
+
+Subtracting superbias.fits from all xo2b*.fits images ....
+
+Percent: [----------] 0.751879699248% Percent: [----------] 1.5037593985% Percent: [----------] 2.25563909774% Percent: [----------] 3.00751879699% Percent: [----------] 3.75939849624% Percent: [----------] 4.51127819549% Percent: [#---------] 5.26315789474% Percent: [#---------] 6.01503759398% Percent: [#---------] 6.76691729323% Percent: [#---------] 7.51879699248% Percent: [#---------] 8.27067669173% Percent: [#---------] 9.02255639098% Percent: [#---------] 9.77443609023% Percent: [#---------] 10.5263157895% Percent: [#---------] 11.2781954887% Percent: [#---------] 12.030075188% Percent: [#---------] 12.7819548872% Percent: [#---------] 13.5338345865% Percent: [#---------] 14.2857142857% Percent: [##--------] 15.037593985% Percent: [##--------] 15.7894736842% Percent: [##--------] 16.5413533835% Percent: [##--------] 17.2932330827% Percent: [##--------] 18.045112782% Percent: [##--------] 18.7969924812% Percent: [##--------] 19.5488721805% Percent: [##--------] 20.3007518797% Percent: [##--------] 21.0526315789% Percent: [##--------] 21.8045112782% Percent: [##--------] 22.5563909774% Percent: [##--------] 23.3082706767% Percent: [##--------] 24.0601503759% Percent: [##--------] 24.8120300752% Percent: [###-------] 25.5639097744% Percent: [###-------] 26.3157894737% Percent: [###-------] 27.0676691729% Percent: [###-------] 27.8195488722% Percent: [###-------] 28.5714285714% Percent: [###-------] 29.3233082707% Percent: [###-------] 30.0751879699% Percent: [###-------] 30.8270676692% Percent: [###-------] 31.5789473684% Percent: [###-------] 32.3308270677% Percent: [###-------] 33.0827067669% Percent: [###-------] 33.8345864662% Percent: [###-------] 34.5864661654% Percent: [####------] 35.3383458647% Percent: [####------] 36.0902255639% Percent: [####------] 36.8421052632% Percent: [####------] 37.5939849624% Percent: [####------] 38.3458646617% Percent: [####------] 39.0977443609% Percent: [####------] 39.8496240602% Percent: [####------] 40.6015037594% Percent: [####------] 41.3533834586% Percent: [####------] 42.1052631579% Percent: [####------] 42.8571428571% Percent: [####------] 43.6090225564% Percent: [####------] 44.3609022556% Percent: [#####-----] 45.1127819549% Percent: [#####-----] 45.8646616541% Percent: [#####-----] 46.6165413534% Percent: [#####-----] 47.3684210526% Percent: [#####-----] 48.1203007519% Percent: [#####-----] 48.8721804511% Percent: [#####-----] 49.6240601504% Percent: [#####-----] 50.3759398496% Percent: [#####-----] 51.1278195489% Percent: [#####-----] 51.8796992481% Percent: [#####-----] 52.6315789474% Percent: [#####-----] 53.3834586466% Percent: [#####-----] 54.1353383459% Percent: [#####-----] 54.8872180451% Percent: [######----] 55.6390977444% Percent: [######----] 56.3909774436% Percent: [######----] 57.1428571429% Percent: [######----] 57.8947368421% Percent: [######----] 58.6466165414% Percent: [######----] 59.3984962406% Percent: [######----] 60.1503759398% Percent: [######----] 60.9022556391% Percent: [######----] 61.6541353383% Percent: [######----] 62.4060150376% Percent: [######----] 63.1578947368% Percent: [######----] 63.9097744361% Percent: [######----] 64.6616541353% Percent: [#######---] 65.4135338346% Percent: [#######---] 66.1654135338% Percent: [#######---] 66.9172932331% Percent: [#######---] 67.6691729323% Percent: [#######---] 68.4210526316% Percent: [#######---] 69.1729323308% Percent: [#######---] 69.9248120301% Percent: [#######---] 70.6766917293% Percent: [#######---] 71.4285714286% Percent: [#######---] 72.1804511278% Percent: [#######---] 72.9323308271% Percent: [#######---] 73.6842105263% Percent: [#######---] 74.4360902256% Percent: [########--] 75.1879699248% Percent: [########--] 75.9398496241% Percent: [########--] 76.6917293233% Percent: [########--] 77.4436090226% Percent: [########--] 78.1954887218% Percent: [########--] 78.9473684211% Percent: [########--] 79.6992481203% Percent: [########--] 80.4511278195% Percent: [########--] 81.2030075188% Percent: [########--] 81.954887218% Percent: [########--] 82.7067669173% Percent: [########--] 83.4586466165% Percent: [########--] 84.2105263158% Percent: [########--] 84.962406015% Percent: [#########-] 85.7142857143% Percent: [#########-] 86.4661654135% Percent: [#########-] 87.2180451128% Percent: [#########-] 87.969924812% Percent: [#########-] 88.7218045113% Percent: [#########-] 89.4736842105% Percent: [#########-] 90.2255639098% Percent: [#########-] 90.977443609% Percent: [#########-] 91.7293233083% Percent: [#########-] 92.4812030075% Percent: [#########-] 93.2330827068% Percent: [#########-] 93.984962406% Percent: [#########-] 94.7368421053% Percent: [##########] 95.4887218045% Percent: [##########] 96.2406015038% Percent: [##########] 96.992481203% Percent: [##########] 97.7443609023% Percent: [##########] 98.4962406015% Percent: [##########] 99.2481203008% Percent: [##########] 100% Done...
+
+.... cleaning xo2b*.fits images
+
+
+ Statistics of Bxo2b*.fits images: 
+
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0226.fits   1863225     16.97     251.9    -1230.    63250.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0228.fits   1863225     16.86     274.5    -1233.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0230.fits   1863225       17.     238.6    -1232.    59289.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0232.fits   1863225     17.03     251.1    -1229.    63676.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0234.fits   1863225     17.05     265.1    -1234.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0236.fits   1863225     17.04     260.9    -1232.    64613.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0238.fits   1863225       17.     269.7    -1232.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0240.fits   1863225     17.09     264.2    -1231.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0242.fits   1863225     17.12     245.3    -1233.    60676.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0244.fits   1863225     17.11     236.9    -1229.    58478.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0246.fits   1863225     17.09      263.    -1231.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0248.fits   1863225     17.04     254.6    -1233.    64613.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0250.fits   1863225     17.02     242.4    -1229.    59167.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0252.fits   1863225     17.04     254.6    -1232.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0254.fits   1863225       17.     258.3    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0256.fits   1863225     16.93     275.8    -1230.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0258.fits   1863225     17.08     268.5    -1230.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0260.fits   1863225     17.06      248.    -1231.    64270.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0262.fits   1863225     17.04     275.8    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0264.fits   1863225     16.95     280.3    -1230.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0266.fits   1863225     17.02     275.8    -1230.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0002.fits   1863225     21.42     165.4    -1230.    59712.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0004.fits   1863225      21.4     194.7    -1231.    59923.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0006.fits   1863225     21.27     205.5    -1231.    59819.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0008.fits   1863225     21.28     172.5    -1232.    59802.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0010.fits   1863225     21.29     168.2    -1231.    59858.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0012.fits   1863225     21.28     214.1    -1233.    59662.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0014.fits   1863225     21.23     233.1    -1232.    60718.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0016.fits   1863225     21.16     215.3    -1233.    60467.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0018.fits   1863225     21.13     227.1    -1233.    61534.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0020.fits   1863225       21.     253.7    -1231.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0022.fits   1863225      20.9      250.    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0024.fits   1863225     20.84     225.5    -1231.    59683.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0026.fits   1863225     20.76     219.7    -1233.    59832.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0028.fits   1863225     20.87     213.8    -1231.    59754.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0030.fits   1863225     20.79     221.9    -1233.    59757.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0032.fits   1863225     20.68     222.1    -1231.    59604.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0034.fits   1863225     20.61     212.3    -1230.    59494.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0036.fits   1863225      20.6     237.6    -1233.    61104.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0038.fits   1863225     20.58     219.8    -1231.    59522.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0040.fits   1863225     20.52      200.    -1231.    59491.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0042.fits   1863225     20.59     215.8    -1233.    64603.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0044.fits   1863225     20.46     214.2    -1227.    59294.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0046.fits   1863225     20.31     172.3    -1230.    59420.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0048.fits   1863225     20.22     199.7    -1233.    59331.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0050.fits   1863225     20.18      172.    -1231.    59400.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0052.fits   1863225     20.26     207.1    -1230.    59460.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0054.fits   1863225     20.19     236.4    -1231.    62507.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0056.fits   1863225     20.11     217.9    -1233.    59712.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0058.fits   1863225     19.99     228.3    -1233.    59588.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0060.fits   1863225     19.94     235.5    -1230.    60055.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0062.fits   1863225     19.87      209.    -1233.    59741.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0064.fits   1863225     19.77     213.6    -1233.    59765.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0066.fits   1863225     19.57     186.3    -1231.    59789.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0068.fits   1863225     19.55     214.4    -1233.    59732.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0070.fits   1863225     19.56     214.1    -1231.    64602.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0072.fits   1863225     19.38     172.4    -1231.    59782.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0074.fits   1863225     19.34     175.2    -1233.    59796.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0076.fits   1863225     19.14     158.6    -1231.    59790.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0078.fits   1863225     19.23     151.5    -1230.    59778.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0080.fits   1863225      19.1     178.3    -1231.    59678.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0082.fits   1863225     19.06     150.2    -1231.    59782.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0084.fits   1863225     19.04     172.7    -1232.    59750.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0086.fits   1863225       19.     207.5    -1233.    59742.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0088.fits   1863225     18.97     209.8    -1232.    60339.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0090.fits   1863225     18.91     200.5    -1233.    59832.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0092.fits   1863225     18.82     188.4    -1233.    59759.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0094.fits   1863225     18.79      200.    -1231.    63996.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0096.fits   1863225     18.73     222.2    -1232.    59697.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0098.fits   1863225     18.65     221.6    -1234.    59755.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0100.fits   1863225     18.67      202.    -1231.    59509.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0102.fits   1863225     18.71     219.2    -1233.    64121.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0104.fits   1863225     18.62     227.2    -1231.    59641.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0106.fits   1863225     18.62     217.2    -1234.    59488.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0108.fits   1863225     18.57     205.3    -1231.    59642.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0110.fits   1863225     18.56     212.2    -1233.    59566.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0112.fits   1863225      18.5     208.4    -1230.    59624.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0114.fits   1863225     18.39     212.5    -1231.    59454.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0116.fits   1863225     18.25     191.9    -1233.    58590.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0118.fits   1863225     18.36     224.6    -1231.    59548.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0120.fits   1863225      18.4     178.5    -1233.    59593.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0122.fits   1863225     18.42     200.4    -1232.    59534.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0124.fits   1863225      18.5     242.5    -1233.    62118.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0126.fits   1863225     18.55     244.9    -1232.    62480.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0128.fits   1863225     18.59     225.6    -1233.    63996.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0130.fits   1863225     18.52     246.7    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0132.fits   1863225     18.52     220.4    -1232.    59675.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0134.fits   1863225     18.49     244.4    -1231.    62514.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0136.fits   1863225     18.49     210.9    -1229.    59449.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0138.fits   1863225     18.36     261.6    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0140.fits   1863225     18.24     245.6    -1233.    62252.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0142.fits   1863225     18.16     218.2    -1233.    59579.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0144.fits   1863225     18.18     249.9    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0146.fits   1863225     18.12     252.1    -1234.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0148.fits   1863225     18.08     204.5    -1233.    59564.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0150.fits   1863225     18.01     214.5    -1233.    59401.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0152.fits   1863225     17.96     250.2    -1231.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0154.fits   1863225     17.98     234.6    -1228.    58586.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0156.fits   1863225     17.96     220.9    -1233.    58394.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0158.fits   1863225     17.95     232.8    -1233.    58415.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0160.fits   1863225     17.89     241.9    -1232.    61149.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0162.fits   1863225     17.78     271.6    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0164.fits   1863225     17.71     241.9    -1229.    63380.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0166.fits   1863225     17.67      229.    -1233.    58448.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0168.fits   1863225      17.6     238.3    -1234.    58906.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0170.fits   1863225     17.51     234.9    -1231.    58415.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0172.fits   1863225     17.56     237.2    -1234.    58634.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0174.fits   1863225     17.51     274.7    -1234.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0176.fits   1863225     17.55     226.9    -1232.    58429.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0178.fits   1863225     17.45     222.5    -1231.    58446.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0180.fits   1863225     17.37     219.2    -1230.    58459.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0182.fits   1863225     17.32     200.7    -1234.    58608.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0184.fits   1863225      17.3     242.2    -1231.    61423.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0186.fits   1863225     17.22     257.8    -1232.    64613.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0188.fits   1863225     17.28     258.5    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0190.fits   1863225     17.31     241.7    -1232.    60452.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0192.fits   1863225      17.2     279.8    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0194.fits   1863225     17.21     279.8    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0196.fits   1863225     17.18     281.2    -1231.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0198.fits   1863225     17.24     277.7    -1233.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0200.fits   1863225     17.21     278.4    -1234.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0202.fits   1863225     17.19     283.4    -1233.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0204.fits   1863225     17.26     275.5    -1232.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0206.fits   1863225     17.26     271.6    -1232.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0208.fits   1863225     17.25     269.1    -1232.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0210.fits   1863225     17.22     253.7    -1229.    62789.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0212.fits   1863225     17.19     263.9    -1232.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0214.fits   1863225     17.07     267.5    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0216.fits   1863225     16.92     276.7    -1231.    64615.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0218.fits   1863225     16.97     268.6    -1233.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0220.fits   1863225     17.04     255.8    -1234.    64614.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0222.fits   1863225     17.05     199.4    -1234.    58303.
+#               IMAGE      NPIX      MEAN    STDDEV       MIN       MAX
+      Bxo2b.0224.fits   1863225     17.01     252.3    -1232.    64614.
