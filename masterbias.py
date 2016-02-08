@@ -16,6 +16,7 @@ from ExoSetupTaskParameters import * #loading setup from PyExoDRPL
 import glob #package for list files
 import os #package for control bash commands
 import yaml #input data without any trouble
+import string
 print '.... done. \n'
 
 #******************************************************************************
@@ -30,7 +31,6 @@ if input_file:
         file = yaml.load(open(input_file[0])) #creating our dictionary of input variables
         data_path = file['data_path']
         save_path = file['save_path']
-        bias_list = file['bias_list']
         print '....  done! \n'
     if len(input_file) > 1:
         print 'reading input file ... \n'
@@ -42,10 +42,10 @@ else:
 #******************************************************************************
 #******************* END INPUT PATH FILE **************************************
 #******************************************************************************
-    
+
 #Set original directory
 original_path = os.getcwd()
-    
+
 #Change your directory to data diretory
 os.chdir(data_path)
 
@@ -59,19 +59,30 @@ print '\nCreating superbias \n'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-#create a list of bias images and copy the files to save_path
-os.system('ls bias*.fits > '+bias_list)
+#copy bias images to save_path
 os.system('cp bias*.fits '+save_path)
-os.system('cp '+bias_list+' '+save_path)
 
 #change to sabe_path
 os.chdir(save_path)
+#verify if previous superbias exist
+if os.path.isfile('superbias.fits') == True:
+    os.system('rm superbias.fits')
+
+#create the list of bias images
+bias_list = string.join(bias,',')
 
 #combine the bias image and create the superbias
-iraf.imcombine(bias,'superbias.fits')
+iraf.imcombine(bias_list,'superbias.fits')
+iraf.imstat('superbias.fits')
 
 #clean previos bias files
+print '\n Cleaning bias*.fits images ....\n'
 os.system('rm bias*.fits')
+print '\n.... done.'
 
 #Return to original directory
 os.chdir(original_path)
+
+#END of the masterbias reduction messsage
+print '\nsuperbias.fits created!\n'
+print '\nEND of superbias reduction!\n'

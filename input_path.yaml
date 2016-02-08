@@ -14,6 +14,14 @@ save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
 #prefix for the exoplanet science images
 exoplanet: 'xo2b'
 
+#observatory *******************************************************************
+# name of the observatory where was made the images to set arimass, ST and UT
+observatory: 'mtbigelow'
+
+#time **************************************************************************
+# type of time to set
+time: 'ut'
+
 #*******************************************************************************
 #************************ END yaml file input **********************************
 #*******************************************************************************
