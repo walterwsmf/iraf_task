@@ -16,7 +16,6 @@ from ExoSetupTaskParameters import * #loading setup from PyExoDRPL
 import glob #package for list files
 import os #package for control bash commands
 import yaml #input data without any trouble
-import string #transform a list in a string of caracters
 print '.... done. \n'
 
 #******************************************************************************
@@ -31,6 +30,7 @@ if input_file:
         file = yaml.load(open(input_file[0])) #creating our dictionary of input variables
         data_path = file['data_path']
         save_path = file['save_path']
+        bias_list = file['bias_list']
         print '....  done! \n'
     if len(input_file) > 1:
         print 'reading input file ... \n'
@@ -59,32 +59,19 @@ print '\nCreating superbias \n'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-# copy the files to save_path
+#create a list of bias images and copy the files to save_path
+os.system('ls bias*.fits > '+bias_list)
 os.system('cp bias*.fits '+save_path)
+os.system('cp '+bias_list+' '+save_path)
 
 #change to sabe_path
 os.chdir(save_path)
 
-#verify if previous superbias exist
-if os.path.isfile('superbias.fits') == True:
-    os.system('rm superbias.fits')
-    
-#creating bias list
-bias = string.join(bias,',')
-
 #combine the bias image and create the superbias
 iraf.imcombine(bias,'superbias.fits')
 
-#print statistics from superbias:
-iraf.imstat('superbias.fits')
-
 #clean previos bias files
-print '\n Clean bias*.fits images ... \n'
 os.system('rm bias*.fits')
-print '\n .... done \n'
 
 #Return to original directory
 os.chdir(original_path)
-
-print '\n MASTERBIAS.FITS created! \n'
-print '\n END of Data Reduction for create a masterbias.fits file. \n'
