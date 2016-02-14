@@ -1,0 +1,29 @@
+#*******************************************************************************
+#********************** Begin yaml file input **********************************
+#*******************************************************************************
+
+# data_path ********************************************************************
+# Path where are the data we want to reduce
+#data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
+data_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/'
+
+# save_path ********************************************************************
+# Path where we want to save our results
+#save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
+save_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/iraf_task/'
+
+# exoplanet ********************************************************************
+#prefix for the exoplanet science images
+#exoplanet: 'xo2b'
+exoplanet: 'XO2b'
+#observatory *******************************************************************
+# name of the observatory where was made the images to set arimass, ST and UT
+observatory: 'mtbigelow'
+
+#time **************************************************************************
+# type of time to set
+time: 'ut'
+
+#*******************************************************************************
+#************************ END yaml file input **********************************
+#*******************************************************************************

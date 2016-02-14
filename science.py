@@ -6,7 +6,7 @@ Created on Sat Feb  6 21:08:38 2016
 e-mail: walter at on.br
         waltersmartinsf at gmail.com
 """
-
+#%%
 print 'Data Reduction: Reduce Science images! \n'
 print 'Loading Iraf packages .... \n'
 
@@ -65,7 +65,7 @@ def update_progress(progress):
 #******************************************************************************
 #path for your data directory, path for your data save, and names for the lists
 #Import with yaml file: input path and prefix information for files
-input_file = glob.glob('input_path*.yaml')
+input_file = glob.glob('input*.yaml')
 if input_file:
     if len(input_file) == 1:
         print 'reading input file ... \n'
@@ -84,7 +84,7 @@ else:
 #******************************************************************************
 #******************* END INPUT PATH FILE **************************************
 #******************************************************************************
-
+#%%
 #set original directory
 original_path = os.getcwd()
 
@@ -107,7 +107,7 @@ print '\n .... done. \n'
 
 #change to save_path
 os.chdir(save_path)
-
+#%%
 #create the names for exoplanet science mages with bias subtracted
 bexoplanet = []
 for i in exoplanet:
@@ -133,7 +133,7 @@ os.system('rm '+planet+'*.fits')
 print '\n Statistics of B'+planet+'*.fits images: \n'
 for i in range(len(bexoplanet)):
     iraf.imstat(bexoplanet[i])
-
+#%%
 print '\nFlatfielding the B'+planet+'*.fits ....\n'
 #create the names for exoplanet science images with bias subtracted and flatfielding
 abexoplanet = []
