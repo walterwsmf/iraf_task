@@ -31,9 +31,9 @@ print '\n.... done.\n'
 #change to save data reduction directory
 os.chdir(save_path)
 
-print '\n Previous results from info_time task: \n'
-results_time = glob.glob('results*.csv')
-data_time = read_csv(results_time[0])
+# print '\n Previous results from info_time task: \n'
+# results_time = glob.glob('results*.csv')
+# data_time = read_csv(results_time[0])
 #name of the columns in this data_time dataframe
 #['images','UTC','JD','ST','ST_isot','RA_SUN','DEC_SUN','D_SUN','HJD']
 #print data_time
@@ -69,6 +69,7 @@ for i in range(len(images)):
 
 print '\n Setting airmass ....\n'
 for i in range(len(images)):
+    print '# ',images[i]
     #iraf.hedit(images[i],'airmass',airmass,add='yes')
     #iraf.hedit(images[i],'HJD',HJD,add='yes')
     iraf.setairmass.observatory = input_data['observatory']

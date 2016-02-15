@@ -105,6 +105,6 @@ print '\nSave data file ... \n'
 data = DataFrame([images,tempo_loc,list(JD),list(ST),list(ST_string),list(ra_sun),list(dec_sun),list(dsun),list(HJD)]).T
 data.columns=['images','UTC','JD','ST','ST_isot','RA_SUN','DEC_SUN','D_SUN','HJD']
 print data
-data.to_csv(save_path+'results.csv')
+data.to_csv('results.csv')
 
 os.chdir(original_path)
