@@ -10,6 +10,8 @@ ___
 - PyRAF 2.1.6
 - IRAF 2.16
 - PyYAML 3.11
+- HDF5
+- PyTables 3.2.2
 
 You can find Iraf and Python packages in Ureka 1.5.2 package: http://ssb.stsci.edu/ureka/
 

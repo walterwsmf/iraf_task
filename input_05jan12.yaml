@@ -4,25 +4,52 @@
 
 # data_path ********************************************************************
 # Path where are the data we want to reduce
-#data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
-data_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/'
+data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
+#data_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/'
 
 # save_path ********************************************************************
 # Path where we want to save our results
-#save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf/'
-save_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/iraf_task/'
+save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf'
+#save_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/iraf_task/'
 
 # exoplanet ********************************************************************
 #prefix for the exoplanet science images
-#exoplanet: 'xo2b'
-exoplanet: 'XO2b'
+exoplanet: 'xo2b'
+#exoplanet: 'XO2b'
+
+# epoch, RA, DEC ***************************************************************
+#coordinates of our host star + exoplanet
+epoch: '2000.0'
+RA: '07:48:06.46'
+DEC: '+50:13:32.9'
+frame: 'fk5'
+u.RA : 'degree'
+u.DEC : 'degree'
+
 #observatory *******************************************************************
 # name of the observatory where was made the images to set arimass, ST and UT
 observatory: 'mtbigelow'
 
+#lat-obs, lon-obs, time_zone ***************************************************
+# latitude (lat-obs) and longitude (lon-obs) of the observatory
+#and time_zone of the observatory
+#lat-obs: '32 24 59.3 N'
+lat-obs: 32.4164722222
+#lon-obs: '110 44 04.3 W'
+lon-obs: -110.734527778
+altitude: 2510.
+time_zone: +7.
+
 #time **************************************************************************
 # type of time to set
 time: 'ut'
+
+#header information ************************************************************
+#some useful information we need from header. This is for setting the correct
+#keywords
+date-obs: 'DATE-OBS'
+time-obs: 'UT'
+scale-time: 'utc'
 
 #*******************************************************************************
 #************************ END yaml file input **********************************
