@@ -24,7 +24,7 @@ print '.... done. \n'
 #******************************************************************************
 #path for your data directory, path for your data save, and names for the lists
 #Import with yaml file: input path and prefix information for files
-input_file = glob.glob('input_path*.yaml')
+input_file = glob.glob('input*.yaml')
 if input_file:
     if len(input_file) == 1:
         print 'reading input file ... \n'

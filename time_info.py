@@ -26,6 +26,8 @@ import yaml #input data without any trouble
 #import string #transform a list in a string of caracters
 import useful_functions as use
 import numpy as np
+from astropy.coordinates import SkyCoord,get_sun,ICRS #get the Sun position from a instant of time
+from pandas import DataFrame
 #from pandas import HDFStore #save data in a database
 print '\n.... Done.'
 
@@ -65,34 +67,44 @@ images = sorted(glob.glob('AB'+input_data['exoplanet']+'*.fits'))
 print '\nImages = \n',images
 
 tempo_loc = [] #time object
+SUN = [] #Sun coordinate object
+ra_sun, dec_sun, dsun = np.zeros(len(images)),np.zeros(len(images)),np.zeros(len(images)) #sun coordinates
 JD = np.zeros(len(images)) #julian date from time object
 ST = np.zeros(len(images))
+HJD = np.zeros(len(images))
+#create the exoplanet object coordianate
+exoplanet = SkyCoord(dec=input_data['DEC'],ra=input_data['RA'],unit=('deg','deg'),frame=input_data['frame'])
 
 print '\nObtain data info from header ....\n'
 for i in range(len(images)):
     hdr = fits.getheader(images[i])
     UTC = hdr['date-obs']+'T'+hdr['UT'] #string that contain the time in UTC in isot format
-    tempo_loc.append(Time(UTC,scale=input_data['scale-time'],format='isot',location=(input_data['lon-obs'],input_data['lat-obs'],input_data['altitude'])))
+    tempo_loc.append(Time(UTC,scale=input_data['scale-time'],format='isot',location=(input_data['lon-obs'],input_data['lat-obs'])))#,input_data['altitude'])))
     JD[i] = tempo_loc[i].jd
     ST[i] = tempo_loc[i].sidereal_time('apparent').hour
+    SUN.append(get_sun(tempo_loc[i]))
+    ra_sun[i],dec_sun[i] = SUN[i].ra.deg, SUN[i].dec.deg
+    dsun[i] = SUN[i].distance.value
+    HJD[i] = use.hjd_date(JD[i],dsun[i],dec_sun[i],ra_sun[i],exoplanet.dec.deg,exoplanet.ra.deg,circular_orbit=input_data['circular_orbit'])
     use.update_progress((i+1.)/len(images))
 print '\n.... done.\n'
 
 print '\n Time from header = \n'
-print '\nImages ** UTC (YYYY-MM-DDTHH:MM:SS) ** JD (7d.5d) ** ST (hours) ** ST (HH:MM:SS) \n'
+#print '\nImages ** UTC (YYYY-MM-DDTHH:MM:SS) ** JD (7d.5d) ** ST (hours) ** ST (HH:MM:SS) ** Sun Coordinate (epoch,RA,DEC,Distance) (deg,deg,AU) \n'
 ST_string = []
 for i in range(len(images)):
     ST1 = int(ST[i])
     ST2 = int((ST[i]-ST1)*60.)
     ST3 = (((ST[i]-ST1)*60.)-ST2)*60
     ST_string.append(str(ST1)+':'+str(ST2)+':'+str(ST3))
-    print images[i], ' ** ',tempo_loc[i], ' ** ', JD[i], ' ** ', ST[i],' ** ',ST_string[i]
+    tempo_loc[i] = tempo_loc[i].value
+    use.update_progress((i+1.)/len(images))
+    #print images[i], ' ** ',tempo_loc[i], ' ** ', JD[i], ' ** ', ST[i],' ** ',ST_string[i],' ** ',sun_loc[i],' ** ',HJD[i]
 
-#print '\nSave data in HDF5 file ... \n'
-# store = HDFStore('info_time.h5')
-# store.put('JD',JD)
-# store['time_obj'] = tempo_loc
-# store['name'] = images
-#store.close()
+print '\nSave data file ... \n'
+data = DataFrame([images,tempo_loc,list(JD),list(ST),list(ST_string),list(ra_sun),list(dec_sun),list(dsun),list(HJD)]).T
+data.columns=['images','UTC','JD','ST','ST_isot','RA_SUN','DEC_SUN','D_SUN','HJD']
+print data
+data.to_csv(save_path+'results.csv')
 
 os.chdir(original_path)

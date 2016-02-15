@@ -4,18 +4,18 @@
 
 # data_path ********************************************************************
 # Path where are the data we want to reduce
-data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
-#data_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/'
+#data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
+data_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/'
 
 # save_path ********************************************************************
 # Path where we want to save our results
-save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf'
-#save_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/iraf_task/'
+#save_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/teste_pyraf'
+save_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/iraf_task/'
 
 # exoplanet ********************************************************************
 #prefix for the exoplanet science images
-exoplanet: 'xo2b'
-#exoplanet: 'XO2b'
+#exoplanet: 'xo2b'
+exoplanet: 'XO2b'
 
 # epoch, RA, DEC ***************************************************************
 #coordinates of our host star + exoplanet
@@ -39,6 +39,10 @@ lat-obs: 32.4164722222
 lon-obs: -110.734527778
 altitude: 2510.
 time_zone: +7.
+
+# circular_orbit ***************************************************************
+#assume the Earth orbit is circular.
+circular_orbit: False
 
 #time **************************************************************************
 # type of time to set

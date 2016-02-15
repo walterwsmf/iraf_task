@@ -26,7 +26,7 @@ print '.... done. \n'
 #******************************************************************************
 #path for your data directory, path for your data save, and names for the lists
 #Import with yaml file: input path and prefix information for files
-input_file = glob.glob('input_path*.yaml')
+input_file = glob.glob('input*.yaml')
 if input_file:
     if len(input_file) == 1:
         print 'reading input file ... \n'
@@ -44,7 +44,7 @@ else:
 #******************************************************************************
 #******************* END INPUT PATH FILE **************************************
 #******************************************************************************
-    
+
 #set original directory
 original_path = os.getcwd()
 
@@ -57,7 +57,7 @@ print 'Loading flat images \nTotal of flat files = ',len(flat),'\nFiles = \n'
 print flat
 
 #if save_path exist, continue; if not, create.
-if not os.path.exists(save_path): 
+if not os.path.exists(save_path):
     os.makedirs(save_path)
 
 #create a list of bias images and copy images to save_path
@@ -67,7 +67,7 @@ os.system('cp flat*.fits '+save_path)
 bflat = []
 for i in flat:
     bflat.append('B'+i)
-print '\n Names os flat images with bias subtracted: \n \n',bflat 
+print '\n Names os flat images with bias subtracted: \n \n',bflat
 
 #change for save_path directory
 os.chdir(save_path)
@@ -79,7 +79,7 @@ if os.path.isfile('superflat.fits') == True:
 for i in bflat:
     if os.path.isfile(i) == True:
         os.system('rm -f '+i)
-        
+
 print '\nCreating superflat .... \n'
 
 #create the list of flat images  and bflat images
@@ -116,7 +116,7 @@ print bflat_mean
 abflat = []
 for i in bflat:
     abflat.append('A'+i)
-print '\n Names os bflat images with bias subtracted and normalizad: \n \n',abflat 
+print '\n Names os bflat images with bias subtracted and normalizad: \n \n',abflat
 
 #verify if exist previous ABflat*.fits images and remove then.
 for i in abflat:

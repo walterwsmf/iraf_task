@@ -161,7 +161,7 @@ def delta_exp(exptime, time,date):
 #obtain the sexagesimal system from a number in float
 def sexagesimal_format(number_decimal):
     """
-    Return the angle number in sexagesimal format.
+    Return the time or angle number in sexagesimal format.
     ___
     INPUT:
     number_decimal: number in decimal format
