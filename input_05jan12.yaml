@@ -6,7 +6,7 @@
 # Path where are the data we want to reduce
 #data_path: '/home/walter/workspace/exoplanet/data/xo2b/xo2b.b/'
 #data_path: '/home/walter/exoplanet/xo2b/xo2b_wsmf/05jan12/xo2b.u/'
-data_path: '/home/walter/exoplanet/data/xo2b/xo2b.b/'
+data_path: '/home/walter/exoplanet/data/xo2b/xo2b.b'
 
 # save_path ********************************************************************
 # Path where we want to save our results
@@ -56,6 +56,12 @@ time: 'ut'
 date-obs: 'DATE-OBS'
 time-obs: 'UT'
 scale-time: 'utc'
+
+#Photometry information ********************************************************
+#Some information to use in the photometry routine
+
+skysection:   [526,81]
+pxpositions:  [582.79,581.76,559.06,512.4]
 
 #*******************************************************************************
 #************************ END yaml file input **********************************
