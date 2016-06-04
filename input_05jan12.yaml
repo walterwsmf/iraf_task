@@ -31,6 +31,7 @@ u.DEC : 'degree'
 #observatory *******************************************************************
 # name of the observatory where was made the images to set arimass, ST and UT
 observatory: 'mtbigelow'
+gain: 3.19
 
 #lat-obs, lon-obs, time_zone ***************************************************
 # latitude (lat-obs) and longitude (lon-obs) of the observatory
@@ -62,6 +63,7 @@ scale-time: 'utc'
 
 skysection:   [526,81]
 pxpositions:  [582.79,581.76,559.06,512.4]
+apertures:    [7,14] #inferior and superior limits
 
 #*******************************************************************************
 #************************ END yaml file input **********************************
